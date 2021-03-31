@@ -1,0 +1,26 @@
+---
+apiVersion: v1
+kind: ReplicationController
+metadata:
+     name: myrc
+     labels:
+        loc: in
+        team: '123'
+        app: web
+spec:
+     replicas: 3
+     selector:
+          app: web
+     template:
+         metadata:
+            labels:
+               app: web
+               team: '123'
+               project: '32'
+         spec:
+            containers:
+               - image: rohitraut3366/apache-webserver-php:v5
+                 name: mywebserver
+
+
+
