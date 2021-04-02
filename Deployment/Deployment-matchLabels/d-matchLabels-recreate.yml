@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: myd
+  name: myd
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: myd
+
+  strategy: 
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: myd
+    spec:
+      containers:
+      - image: rohitraut3366/apache-webserver-php:v4
+        name: apache-webserver-php
